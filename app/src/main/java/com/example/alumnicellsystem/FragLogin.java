@@ -1,12 +1,15 @@
 package com.example.alumnicellsystem;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 /**
@@ -28,6 +31,9 @@ public class FragLogin extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    Button login,signUp;
+
 
     public FragLogin() {
         // Required empty public constructor
@@ -104,5 +110,27 @@ public class FragLogin extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        login = getView().findViewById(R.id.login);
+        signUp = getView().findViewById(R.id.signup);
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), Dashboard.class));
+            }
+        });
+
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), SignUp.class));
+            }
+        });
     }
 }
