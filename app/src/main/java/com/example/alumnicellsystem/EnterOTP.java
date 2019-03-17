@@ -19,6 +19,7 @@ public class EnterOTP extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), EnterPassword.class));
+                EnterOTP.this.finish();
             }
         });
     }
