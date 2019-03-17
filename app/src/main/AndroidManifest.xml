@@ -11,7 +11,8 @@
         android:theme="@style/AppTheme">
       
         <activity android:name=".LoginActivity" />
-        <activity android:name=".Dashboard" />
+        <activity android:name=".Dashboard"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".EnterPassword"
             android:theme="@style/AppTheme.NoActionBar" />
