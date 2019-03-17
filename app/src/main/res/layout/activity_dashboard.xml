@@ -15,7 +15,8 @@
             android:columnOrderPreserved="false"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="14dp">
+            android:padding="14dp"
+            android:layout_margin="16dp">
 
             <!-- Row 1 -->
 
@@ -25,12 +26,9 @@
                 android:layout_height="@dimen/card_height"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_margin="16dp"
                 app:cardElevation="@dimen/card_elevation"
-                app:cardCornerRadius="8dp"
-                >
+                app:cardCornerRadius="8dp">
 
                 <RelativeLayout
                     android:layout_gravity="center_horizontal|center_vertical"
@@ -64,9 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_margin="16dp"
                 app:cardElevation="@dimen/card_elevation"
                 app:cardCornerRadius="8dp"
                 >
