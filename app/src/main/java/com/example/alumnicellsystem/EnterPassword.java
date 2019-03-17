@@ -19,8 +19,7 @@ public class EnterPassword extends AppCompatActivity {
         setPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                EnterPassword.this.finish();
+                startActivity(new Intent(getApplicationContext(), Dashboard.class));
             }
         });
     }

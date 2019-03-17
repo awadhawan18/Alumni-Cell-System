@@ -22,6 +22,7 @@
 
             <!-- Column 1 -->
             <android.support.v7.widget.CardView
+                android:id="@+id/profile"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/card_height"
                 android:layout_columnWeight="1"
@@ -58,6 +59,7 @@
 
             <!-- Column 2 -->
             <android.support.v7.widget.CardView
+                android:id="@+id/view_faculties"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -98,6 +100,7 @@
 
             <!-- Column 1 -->
             <android.support.v7.widget.CardView
+                android:id="@+id/view_alumni"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/card_height"
                 android:layout_columnWeight="1"
@@ -149,6 +152,7 @@
                 >
 
                 <RelativeLayout
+                    android:id="@+id/custom_search"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:layout_margin="16dp"
                     android:layout_width="match_parent"
@@ -180,6 +184,7 @@
 
             <!-- Column 1 -->
             <android.support.v7.widget.CardView
+                android:id="@+id/upload_alumni"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/card_height"
                 android:layout_columnWeight="1"
@@ -221,6 +226,7 @@
 
             <!-- Column 2 -->
             <android.support.v7.widget.CardView
+                android:id="@+id/update_alumni"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/card_height"
                 android:layout_columnWeight="1"

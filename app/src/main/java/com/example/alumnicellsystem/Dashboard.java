@@ -7,18 +7,28 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.GridLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 public class Dashboard extends AppCompatActivity {
 
     GridLayout mainGrid;
+    RelativeLayout customSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        mainGrid = (GridLayout) findViewById(R.id.mainGrid);
+        mainGrid = findViewById(R.id.mainGrid);
+        customSearch = findViewById(R.id.custom_search);
+
+        customSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), CustomSearch.class));
+            }
+        });
 
         //Set Event
         setSingleEvent(mainGrid);
@@ -58,7 +68,7 @@ public class Dashboard extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
-                    /*Intent intent = new Intent(MainActivity.this,ActivityOne.class);
+                    /*Intent intent = new Intent(CustomSearch.this,ActivityOne.class);
                     intent.putExtra("info","This is activity from card item index  "+finalI);
                     startActivity(intent);*/
 
