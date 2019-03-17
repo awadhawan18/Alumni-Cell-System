@@ -62,9 +62,7 @@
             android:layout_below="@id/password"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="16dp"
-            android:clickable="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="16dp" />
+            android:clickable="true"/>
 
         <Button
             android:id="@+id/loginBtn"
@@ -106,7 +104,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:text="Sign Up"
-                android:textColor="@color/colorAccent"
+                android:textColor="#ff4081"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_marginLeft="6dp" />

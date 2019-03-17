@@ -20,6 +20,7 @@ public class EnterPassword extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                EnterPassword.this.finish();
             }
         });
     }
