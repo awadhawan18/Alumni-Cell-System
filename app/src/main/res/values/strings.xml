@@ -19,4 +19,7 @@
         <item>EEE</item>
         <item>ICE</item>
     </string-array>
+
+    <string name="base_url">http://omnamahshivay.herokuapp.com</string>
+
 </resources>
