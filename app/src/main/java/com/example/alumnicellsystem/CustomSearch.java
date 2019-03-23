@@ -35,10 +35,10 @@ public class CustomSearch extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.custom_search_activity);
 
-        nameField = findViewById(R.id.name);
-        branchField = findViewById(R.id.branch);
-        yearField = findViewById(R.id.year);
-        companyField = findViewById(R.id.company);
+        nameField = findViewById(R.id.nameET);
+        branchField = findViewById(R.id.branchET);
+        yearField = findViewById(R.id.yearET);
+        companyField = findViewById(R.id.companyET);
         search = findViewById(R.id.search);
         searchOptions = new HashMap<>();
 
