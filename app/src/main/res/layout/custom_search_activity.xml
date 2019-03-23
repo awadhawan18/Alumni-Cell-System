@@ -52,9 +52,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
         android:ems="10"
-        android:id="@+id/course"
+        android:id="@+id/branch"
         android:hint="Course"
         android:padding="16dp"
         android:layout_marginTop="20dp"
@@ -65,7 +64,6 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
         android:ems="10"
         android:id="@+id/company"
         android:hint="Company"

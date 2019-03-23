@@ -3,12 +3,18 @@ package com.example.alumnicellsystem;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
 
+import com.example.alumnicellsystem.Constants.UserFields;
+
+import java.util.HashSet;
+
 public class SplashScreenActivity extends AppCompatActivity {
-    private static int SPLASH_TIME_OUT = 1500;
+    private static int SPLASH_TIME_OUT = 1000;
+    public static final String PREF_COOKIES = "PREF_COOKIES";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +29,17 @@ public class SplashScreenActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent homeIntent = new Intent(SplashScreenActivity.this, LoginActivity.class);
-                startActivity(homeIntent);
+                HashSet<String> cookies = (HashSet<String>) PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getStringSet(PREF_COOKIES, new HashSet<String>());
+
+                if(cookies!=null && !cookies.isEmpty()){
+                    Intent dashboard = new Intent(SplashScreenActivity.this, Dashboard.class);
+                    startActivity(dashboard);
+                }
+                else {
+                    Intent homeIntent = new Intent(SplashScreenActivity.this, LoginActivity.class);
+                    startActivity(homeIntent);
+                }
+
                 finish();
             }
         }, SPLASH_TIME_OUT);

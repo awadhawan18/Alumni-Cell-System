@@ -1,7 +1,9 @@
 package com.example.alumnicellsystem;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,9 +18,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.alumnicellsystem.Constants.UserFields;
 import com.example.alumnicellsystem.Responses.LoginResponse;
 import com.example.alumnicellsystem.Utils.Utility;
 
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -49,8 +53,17 @@ public class FragLogin extends Fragment {
         login = getActivity().findViewById(R.id.loginBtn);
 
 
+
+        OkHttpClient client = new OkHttpClient();
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+
+        builder.addInterceptor(new AddCookiesInterceptor(getActivity())); // VERY VERY IMPORTANT
+        builder.addInterceptor(new ReceivedCookiesInterceptor(getActivity())); // VERY VERY IMPORTANT
+        client = builder.build();
+
         final Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(getString(R.string.base_url))
+                .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -90,6 +103,11 @@ public class FragLogin extends Fragment {
 
                             if(loginResponse != null && Utility.isStatusOk(loginResponse.getStatus())){
                                 Log.v("Login response ",loginResponse.toString());
+
+                                SharedPreferences.Editor memes = PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
+                                memes.putString("USER_EMAIL", email).apply();
+                                memes.commit();
+
                                 startActivity(new Intent(getActivity(), Dashboard.class));
                                 getActivity().finish();
                             }
