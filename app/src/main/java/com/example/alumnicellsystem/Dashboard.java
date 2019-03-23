@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class Dashboard extends AppCompatActivity {
 
     GridLayout mainGrid;
-    RelativeLayout customSearch;
+    RelativeLayout customSearch, yearwiseSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +22,19 @@ public class Dashboard extends AppCompatActivity {
 
         mainGrid = findViewById(R.id.mainGrid);
         customSearch = findViewById(R.id.custom_search);
+        yearwiseSearch = findViewById(R.id.view_alumni);
 
         customSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), CustomSearch.class));
+            }
+        });
+
+        yearwiseSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), YearwiseSearch.class));
             }
         });
 
