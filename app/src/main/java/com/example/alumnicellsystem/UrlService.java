@@ -1,14 +1,17 @@
 package com.example.alumnicellsystem;
 
 import com.example.alumnicellsystem.Responses.LoginResponse;
+import com.example.alumnicellsystem.Responses.SearchResponse;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import okhttp3.MultipartBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
+import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
@@ -97,5 +100,13 @@ public interface UrlService {
     @FormUrlEncoded
     Call<LoginResponse> loginRequest(@Field("email") String email,
                                      @Field("password") String password);
+/*
+    @POST("dashboard/search")
+    @FormUrlEncoded
+    Call<SearchResponse> searchRequest(@FieldMap Map<String, String> options);*/
 
+
+    @POST("dashboard/search")
+    @FormUrlEncoded
+    Call<SearchResponse> searchRequest(@Field("branch")String branch);
 }
