@@ -2,6 +2,7 @@ package com.example.alumnicellsystem;
 
 import com.example.alumnicellsystem.Responses.LoginResponse;
 import com.example.alumnicellsystem.Responses.SearchResponse;
+import com.example.alumnicellsystem.Responses.SignupResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -100,6 +101,22 @@ public interface UrlService {
     @FormUrlEncoded
     Call<LoginResponse> loginRequest(@Field("email") String email,
                                      @Field("password") String password);
+
+
+    @POST("signup/")
+    @FormUrlEncoded
+    Call<SignupResponse> signupRequest(@Field("email") String email,
+                                      @Field("password") String password,
+                                       @Field("name")String name,
+                                       @Field("designation") int designation,
+                                       @Field("department") String department,
+                                       @Field("phone_no") String phoneNo);
+
+
+    @POST("confirm/")
+    @FormUrlEncoded
+    Call<SignupResponse> otpRequest(@Field("email") String email,
+                                       @Field("otp") String otp);
 /*
     @POST("dashboard/search")
     @FormUrlEncoded
