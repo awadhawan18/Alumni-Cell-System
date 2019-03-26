@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class Dashboard extends AppCompatActivity {
 
-    private LinearLayout customSearch, yearWiseSearch;
+    private LinearLayout customSearch, yearWiseSearch, profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class Dashboard extends AppCompatActivity {
 
         customSearch = findViewById(R.id.custom_search);
         yearWiseSearch = findViewById(R.id.view_alumni);
+        profile = findViewById(R.id.profile);
 
         customSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +35,13 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), YearwiseSearch.class));
+            }
+        });
+
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Profile.class));
             }
         });
 
