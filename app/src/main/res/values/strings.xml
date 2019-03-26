@@ -6,9 +6,11 @@
 
     <string-array name="designation">
         <item>Select</item>
-        <item>Assistant Professor</item>
-        <item>Associate Professor</item>
+        <item>Principal</item>
+        <item>Associate_Professor</item>
+        <item>Assistant_Professor</item>
         <item>Professor</item>
+        <item>Other</item>
     </string-array>
 
     <string-array name="department">

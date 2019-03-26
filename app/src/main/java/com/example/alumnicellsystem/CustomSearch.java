@@ -1,8 +1,7 @@
 package com.example.alumnicellsystem;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -11,7 +10,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.alumnicellsystem.Constants.UserFields;
-import com.example.alumnicellsystem.Responses.LoginResponse;
 import com.example.alumnicellsystem.Responses.SearchResponse;
 import com.example.alumnicellsystem.Utils.Utility;
 
@@ -30,6 +28,7 @@ public class CustomSearch extends AppCompatActivity {
     private String name, branch, company, year;
     private Button search;
     private HashMap<String, String> searchOptions;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
