@@ -46,6 +46,7 @@ public class Profile extends AppCompatActivity {
                 memes.commit();
 
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                finish();
             }
         });
     }

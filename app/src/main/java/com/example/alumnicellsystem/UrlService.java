@@ -97,7 +97,7 @@ public interface UrlService {
     @GET("episodes/trending/")
     Call<List<TrendingEpisode>> getTrendingEpisodes(@Query("format") String format);*/
 
-    @POST("adminlogin/")
+    @POST("login/")
     @FormUrlEncoded
     Call<LoginResponse> loginRequest(@Field("email") String email,
                                      @Field("password") String password);
