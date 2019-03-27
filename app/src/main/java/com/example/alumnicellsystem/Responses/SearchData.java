@@ -1,26 +1,20 @@
 package com.example.alumnicellsystem.Responses;
 
-
 import android.os.Parcel;
 import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class SearchData implements Parcelable
 {
 
-    @SerializedName("_id")
+    @SerializedName("item")
     @Expose
-    private String id;
-    @SerializedName("name")
+    private SearchItem searchItem;
+    @SerializedName("score")
     @Expose
-    private String name;
-    @SerializedName("branch")
-    @Expose
-    private String branch;
-    @SerializedName("__v")
-    @Expose
-    private Long v;
+    private Long score;
     public final static Parcelable.Creator<SearchData> CREATOR = new Creator<SearchData>() {
 
 
@@ -39,57 +33,37 @@ public class SearchData implements Parcelable
             ;
 
     protected SearchData(Parcel in) {
-        this.id = ((String) in.readValue((String.class.getClassLoader())));
-        this.name = ((String) in.readValue((String.class.getClassLoader())));
-        this.branch = ((String) in.readValue((String.class.getClassLoader())));
-        this.v = ((Long) in.readValue((Long.class.getClassLoader())));
+        this.searchItem = ((SearchItem) in.readValue((SearchItem.class.getClassLoader())));
+        this.score = ((Long) in.readValue((Long.class.getClassLoader())));
     }
 
     public SearchData() {
     }
 
-    public String getId() {
-        return id;
+    public SearchItem getSearchItem() {
+        return searchItem;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setSearchItem(SearchItem searchItem) {
+        this.searchItem = searchItem;
     }
 
-    public String getName() {
-        return name;
+    public Long getScore() {
+        return score;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getBranch() {
-        return branch;
-    }
-
-    public void setBranch(String branch) {
-        this.branch = branch;
-    }
-
-    public Long getV() {
-        return v;
-    }
-
-    public void setV(Long v) {
-        this.v = v;
+    public void setScore(Long score) {
+        this.score = score;
     }
 
     @Override
     public String toString() {
-        return "LoginData [name = "+name+", _id = "+id+"]";
+        return new StringBuilder().append("item"+ searchItem).append("score"+ score).toString();
     }
 
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeValue(id);
-        dest.writeValue(name);
-        dest.writeValue(branch);
-        dest.writeValue(v);
+        dest.writeValue(searchItem);
+        dest.writeValue(score);
     }
 
     public int describeContents() {

@@ -24,21 +24,22 @@ public class PreferenceManager {
 
         LoginData loginData = loginResponse.getData();
         String depart = loginData.getDepartment();
-        Integer departmentCode = 0;
+        int departmentCode = 0;
         switch (depart){
 
             case "CSE": departmentCode = 1;break;
             case "ECE": departmentCode = 2;break;
             case "IT": departmentCode = 3;break;
             case "EEE": departmentCode = 4;break;
-            case "ICE": departmentCode = 5;
+            case "ICE": departmentCode = 5;break;
+            default: departmentCode = 1;
         }
         SharedPreferences.Editor editor= sharedPreferences.edit();
         editor.putString("Name", loginData.getName());
         editor.putString("Designation", loginData.getDesignation().toString());
-        editor.putString("Department", (departmentCode.toString()));
+        editor.putString("Department", (String.valueOf(departmentCode)));
         editor.putString("Email", loginData.getEmail());
         editor.putString("Contact", loginData.getPhoneNo());
-        editor.commit();
+        editor.apply();
     }
 }
