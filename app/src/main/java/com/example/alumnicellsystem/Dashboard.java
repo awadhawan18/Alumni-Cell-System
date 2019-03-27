@@ -2,6 +2,7 @@ package com.example.alumnicellsystem;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.ResultReceiver;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -41,7 +42,16 @@ public class Dashboard extends AppCompatActivity {
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Profile.class));
+                Intent intent = new Intent(getApplicationContext(), Profile.class);
+                intent.putExtra("finisher", new ResultReceiver(null){
+
+                    @Override
+                    protected void onReceiveResult(int resultCode, Bundle resultData) {
+                        Dashboard.this.finish();
+                    }
+                });
+
+                startActivity(intent);
             }
         });
 

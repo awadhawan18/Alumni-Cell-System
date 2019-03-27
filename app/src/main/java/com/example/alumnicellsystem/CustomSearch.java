@@ -33,6 +33,7 @@ public class CustomSearch extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.custom_search_activity);
+        setTitle("Search");
 
         nameField = findViewById(R.id.nameET);
         branchField = findViewById(R.id.branchET);
