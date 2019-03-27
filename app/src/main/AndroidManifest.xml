@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Profile"></activity>
+        <activity android:name=".Profile"
+            android:windowSoftInputMode="stateHidden"></activity>
         <activity android:name=".AlumniList" />
         <activity android:name=".YearwiseSearch" />
         <activity android:name=".LoginActivity" />

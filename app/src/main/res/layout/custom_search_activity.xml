@@ -20,7 +20,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:padding="16dp"
+            android:paddingBottom="16dp"
+            android:paddingStart="8dp"
             android:inputType="text"
             android:hint="Name"
             android:textColor="#000"/>
@@ -39,7 +40,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:padding="16dp"
+            android:paddingBottom="16dp"
+            android:paddingStart="8dp"
             android:inputType="number"
             android:hint="Enrollment Number"
             android:textColor="#000"/>
@@ -58,7 +60,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:padding="16dp"
+            android:paddingBottom="16dp"
+            android:paddingStart="8dp"
             android:inputType="number"
             android:hint="Passout Year"
             android:textColor="#000"/>
@@ -77,7 +80,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:padding="16dp"
+            android:paddingBottom="16dp"
+            android:paddingStart="8dp"
             android:inputType="text"
             android:hint="Branch"
             android:textColor="#000"/>
@@ -95,7 +99,8 @@
             android:id="@+id/companyET"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:padding="16dp"
+            android:paddingBottom="16dp"
+            android:paddingStart="8dp"
             android:inputType="text"
             android:hint="Company"
             android:textColor="#000"/>

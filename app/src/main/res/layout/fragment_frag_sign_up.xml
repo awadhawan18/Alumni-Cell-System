@@ -29,7 +29,8 @@
                     android:layout_marginBottom="16dp"
                     android:hint="Name"
                     android:inputType="textCapSentences"
-                    android:padding="16dp"
+                    android:paddingBottom="16dp"
+                    android:paddingStart="8dp"
                     android:textColor="#000" />
 
             </android.support.design.widget.TextInputLayout>
@@ -110,7 +111,8 @@
                     android:layout_marginBottom="16dp"
                     android:hint="E-Mail"
                     android:inputType="textEmailAddress"
-                    android:padding="16dp"
+                    android:paddingBottom="16dp"
+                    android:paddingStart="8dp"
                     android:textColor="#000" />
 
             </android.support.design.widget.TextInputLayout>
@@ -130,7 +132,8 @@
                     android:layout_marginBottom="16dp"
                     android:hint="Password"
                     android:inputType="textPassword"
-                    android:padding="16dp"
+                    android:paddingBottom="16dp"
+                    android:paddingStart="8dp"
                     android:textColor="#000" />
 
             </android.support.design.widget.TextInputLayout>
@@ -150,7 +153,8 @@
                     android:layout_marginEnd="16dp"
                     android:hint="Contact No."
                     android:inputType="phone"
-                    android:padding="16dp"
+                    android:paddingBottom="16dp"
+                    android:paddingStart="8dp"
                     android:textColor="#000" />
 
             </android.support.design.widget.TextInputLayout>

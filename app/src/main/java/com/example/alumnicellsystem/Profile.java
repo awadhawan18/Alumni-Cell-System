@@ -2,6 +2,7 @@ package com.example.alumnicellsystem;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.ResultReceiver;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ public class Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        setTitle("Profile");
 
         nameET = findViewById(R.id.nameET);
         emailET = findViewById(R.id.emailET);
@@ -46,8 +48,19 @@ public class Profile extends AppCompatActivity {
                 memes.commit();
 
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-                finish();
+                Profile.this.finish();
+                ((ResultReceiver)getIntent().getParcelableExtra("finisher")).send(1, new Bundle());
             }
         });
+
+
+        SharedPreferences details = getSharedPreferences("userDetail", MODE_PRIVATE);
+        int designationIndex = Integer.parseInt(details.getString("Designation",null));
+        int departmentIndex = Integer.parseInt(details.getString("Department",null));
+        nameET.setText(details.getString("Name", null));
+        designationSP.setSelection(designationIndex);
+        departmentSP.setSelection(departmentIndex);
+        emailET.setText(details.getString("Email",null));
+        contactET.setText(details.getString("Contact",null));
     }
 }
