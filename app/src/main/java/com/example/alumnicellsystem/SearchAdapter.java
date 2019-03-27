@@ -1,73 +1,73 @@
 package com.example.alumnicellsystem;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-//import com.squareup.picasso.Picasso;
+import com.example.alumnicellsystem.Responses.SearchData;
+import com.example.alumnicellsystem.Responses.SearchItem;
 
-import java.util.ArrayList;
+import java.util.List;
 
 
-public class SearchAdapter /*extends RecyclerView.Adapter<SearchAdapter.MyViewHolder>*/ {
-   /* private ArrayList<XperienceObject> xperiences_list;
+public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHolder> {
+    private List<SearchData> searchData;
     private Context mContext;
 
-    public SearchAdapter(Context mContext, ArrayList<XperienceObject> xperiences_list) {
-        this.xperiences_list = xperiences_list;
+    public SearchAdapter(Context mContext, List<SearchData> searchData) {
+        this.searchData = searchData;
         this.mContext = mContext;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View listItem = LayoutInflater.from(parent.getContext()).inflate(R.layout.xperience_card, parent, false);
+        View listItem = LayoutInflater.from(parent.getContext()).inflate(R.layout.alumni_detail_card, parent, false);
         return new MyViewHolder(listItem);
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
-        final XperienceObject temp = xperiences_list.get(position);
-        holder.xperience_name.setText(temp.getName());
-        holder.xpeience_description.setText(temp.getSmallDescription());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        final SearchData searchData = this.searchData.get(position);
+        final SearchItem searchItem = searchData.getSearchItem();
+        holder.studentName.setText(searchItem.getName());
+        holder.studentBranch.setText(searchItem.getBranch());
+        holder.studentCompany.setText(searchItem.getCompany1());
+        holder.studentRollNo.setText(searchItem.getEnrollmentNo());
+        /*holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, XperienceDetailsActivity.class);
-                intent.putExtra("details", temp);
+                intent.putExtra("details", searchResponse);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
             }
-        });
+        });*/
 
     }
 
 
     @Override
     public int getItemCount() {
-        return xperiences_list.size();
+        return searchData.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView xperience_name, xpeience_description, xperience_price;
-        private ImageView xperience_image;
+        private TextView studentName, studentBranch, studentRollNo, studentCompany;
         private Context mContext;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             mContext = itemView.getContext();
-            xperience_name = itemView.findViewById(R.id.xperience_name);
-            xpeience_description = itemView.findViewById(R.id.xperience_description);
-            xperience_price = itemView.findViewById(R.id.xperience_price);
-            xperience_image = itemView.findViewById(R.id.xperience_image);
-
+            studentName = itemView.findViewById(R.id.name);
+            studentBranch = itemView.findViewById(R.id.branch);
+            studentRollNo = itemView.findViewById(R.id.roll_no);
+            studentCompany = itemView.findViewById(R.id.company);
 
         }
 
 
-    }*/
+    }
 }

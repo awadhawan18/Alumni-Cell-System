@@ -117,13 +117,16 @@ public interface UrlService {
     @FormUrlEncoded
     Call<SignupResponse> otpRequest(@Field("email") String email,
                                        @Field("otp") String otp);
-/*
-    @POST("dashboard/search")
+
+    @POST("dashboard/custom-search")
     @FormUrlEncoded
-    Call<SearchResponse> searchRequest(@FieldMap Map<String, String> options);*/
+    Call<SearchResponse> customSearchRequest(@FieldMap Map<String, String> options);
 
 
-    @POST("dashboard/search")
+    @POST("dashboard/custom-search")
     @FormUrlEncoded
-    Call<SearchResponse> searchRequest(@Field("branch")String branch);
+    Call<SearchResponse> searchRequest(@Field("name")String name,
+                                       @Field("branch")String branch,
+                                       @Field("enrollment_no")String enrollmentNo,
+                                       @Field("company_1")String company1);
 }

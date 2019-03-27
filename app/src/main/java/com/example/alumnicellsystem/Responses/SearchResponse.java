@@ -1,10 +1,14 @@
+
 package com.example.alumnicellsystem.Responses;
 
-import java.util.List;
 import android.os.Parcel;
 import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SearchResponse implements Parcelable
 {
@@ -14,7 +18,7 @@ public class SearchResponse implements Parcelable
     private Long status;
     @SerializedName("data")
     @Expose
-    private List<SearchData> data = null;
+    private List<SearchData> data = new ArrayList<>();
     @SerializedName("message")
     @Expose
     private String message;
@@ -37,7 +41,7 @@ public class SearchResponse implements Parcelable
 
     protected SearchResponse(Parcel in) {
         this.status = ((Long) in.readValue((Long.class.getClassLoader())));
-        in.readList(this.data, (SearchData.class.getClassLoader()));
+        in.readList(this.data, (com.example.alumnicellsystem.Responses.SearchData.class.getClassLoader()));
         this.message = ((String) in.readValue((String.class.getClassLoader())));
     }
 
@@ -70,7 +74,7 @@ public class SearchResponse implements Parcelable
 
     @Override
     public String toString() {
-        return new StringBuilder().append("\nstatus "+ status).append("\ndata "+ data).append("\nmessage"+ message).toString();
+        return new StringBuilder().append("status"+ status).append("data"+ data).append("message"+ message).toString();
     }
 
     public void writeToParcel(Parcel dest, int flags) {
