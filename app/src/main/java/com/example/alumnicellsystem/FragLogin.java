@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.alumnicellsystem.Responses.LoginData;
 import com.example.alumnicellsystem.Responses.LoginResponse;
 import com.example.alumnicellsystem.Utils.Utility;
 
@@ -46,11 +47,12 @@ public class FragLogin extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        getActivity().setTitle("Login");
+
         signUp = getActivity().findViewById(R.id.signUpTxt);
         emailET = getActivity().findViewById(R.id.emailET);
         passwordET = getActivity().findViewById(R.id.passwordET);
         login = getActivity().findViewById(R.id.loginBtn);
-
 
 
         OkHttpClient client = new OkHttpClient();
@@ -99,13 +101,15 @@ public class FragLogin extends Fragment {
                         public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                             LoginResponse loginResponse = response.body();
 
-
                             if(loginResponse != null && Utility.isStatusOk(loginResponse.getStatus())){
                                 Log.v("Login response ",loginResponse.toString());
 
                                 SharedPreferences.Editor memes = PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
                                 memes.putString("USER_EMAIL", email).apply();
                                 memes.commit();
+
+                                com.example.alumnicellsystem.PreferenceManager preferenceManager = new com.example.alumnicellsystem.PreferenceManager (getActivity(), loginResponse);
+                                preferenceManager.writePref();
 
                                 startActivity(new Intent(getActivity(), Dashboard.class));
                                 getActivity().finish();

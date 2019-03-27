@@ -53,6 +53,8 @@ public class FragSignUp extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        getActivity().setTitle("Register");
+
         login = getActivity().findViewById(R.id.loginTxt);
         nameET = getActivity().findViewById(R.id.nameET);
         emailET = getActivity().findViewById(R.id.emailET);

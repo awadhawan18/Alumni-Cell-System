@@ -36,6 +36,7 @@ public class CustomSearch extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.custom_search_activity);
+        setTitle("Search");
 
         getSupportActionBar().setTitle("Custom Search");
 
