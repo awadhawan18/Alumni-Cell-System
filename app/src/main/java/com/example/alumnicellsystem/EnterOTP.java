@@ -65,11 +65,9 @@ public class EnterOTP extends AppCompatActivity {
                             if (otpResponse != null && Utility.isOtpStatusOk(otpResponse.getStatus())) {
                                 Log.v("OTP response ", otpResponse.toString());
 
-                                SharedPreferences.Editor memes = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit();
-                                memes.putString("USER_EMAIL", email).apply();
-                                memes.commit();
+                                Toast.makeText(getApplicationContext(), "Please Login Again", Toast.LENGTH_SHORT).show();
 
-                                Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+                                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                                 startActivity(intent);
                                 finish();
                             } else {
