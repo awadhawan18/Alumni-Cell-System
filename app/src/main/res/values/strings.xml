@@ -31,6 +31,6 @@
         <item>2014</item>
     </string-array>
 
-    <string name="base_url">http://omnamahshivay.herokuapp.com</string>
+    <string name="base_url">https://bvpapp.herokuapp.com/</string>
 
 </resources>
