@@ -21,6 +21,8 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        getSupportActionBar().setTitle("Dashboard");
+
         customSearch = findViewById(R.id.custom_search);
         yearWiseSearch = findViewById(R.id.view_alumni);
         profile = findViewById(R.id.profile);

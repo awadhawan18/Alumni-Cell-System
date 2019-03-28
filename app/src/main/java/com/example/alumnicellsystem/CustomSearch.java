@@ -57,7 +57,7 @@ public class CustomSearch extends AppCompatActivity {
         client = builder.build();
 
         final Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://bvpapp.herokuapp.com/")
+                .baseUrl(getString(R.string.base_url))
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
