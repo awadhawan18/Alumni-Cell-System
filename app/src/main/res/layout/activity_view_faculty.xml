@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AlumniList">
+    tools:context=".ViewFaculty">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/search_results"
@@ -20,5 +20,14 @@
         android:textColor="@color/color_text_dark"
         android:textSize="@dimen/text_size_medium"
         android:layout_centerInParent="true"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_margin"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"
+        android:layout_gravity="center"/>
 
 </RelativeLayout>

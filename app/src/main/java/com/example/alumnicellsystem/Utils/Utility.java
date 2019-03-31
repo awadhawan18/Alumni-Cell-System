@@ -1,9 +1,11 @@
 package com.example.alumnicellsystem.Utils;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Patterns;
 
 import com.example.alumnicellsystem.Constants.DesignationValues;
+import com.example.alumnicellsystem.R;
 
 public class Utility {
 
@@ -38,5 +40,10 @@ public class Utility {
             default: designationValue = 5; break;
         }
         return designationValue;
+    }
+
+    public static String getDesignationString(Context mContext, int number){
+        String[] designations = mContext.getResources().getStringArray(R.array.designation);
+        return designations[number];
     }
 }

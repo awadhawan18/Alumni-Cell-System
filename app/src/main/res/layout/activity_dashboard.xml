@@ -19,7 +19,6 @@
         android:layout_marginStart="@dimen/large_margin"/>
 
     <LinearLayout
-        android:id="@+id/profile"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
@@ -35,11 +34,12 @@
             android:background="@drawable/input_background"
             android:layout_weight="1"
             app:strokeWidth="@dimen/small_radius"
-            app:strokeColor="@color/colorPrimaryDark"
+            app:strokeColor="@color/colorPrimary"
             app:cardCornerRadius="@dimen/small_radius"
             app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
+                android:id="@+id/profile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/medium_margin"
@@ -50,14 +50,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/small_margin"
-                    android:padding="@dimen/small_padding"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingEnd="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
                     android:src="@drawable/profile_icon" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/small_margin"
-                    android:padding="@dimen/small_padding"
+                    android:paddingBottom="@dimen/small_padding"
+                    android:paddingEnd="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
                     android:text="Profile"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
@@ -70,7 +74,6 @@
 
         <!-- Column 2 -->
         <android.support.design.card.MaterialCardView
-            android:id="@+id/view_faculties"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/large_margin"
@@ -79,10 +82,11 @@
             android:layout_weight="1"
             app:cardCornerRadius="@dimen/small_radius"
             app:strokeWidth="@dimen/small_radius"
-            app:strokeColor="@color/colorPrimaryDark"
+            app:strokeColor="@color/colorPrimary"
             app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
+                android:id="@+id/view_faculties"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="16dp"
@@ -93,14 +97,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/medium_margin"
-                    android:padding="@dimen/medium_padding"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingEnd="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
                     android:src="@drawable/faculty_icon" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/small_margin"
-                    android:padding="@dimen/small_padding"
+                    android:paddingEnd="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
                     android:text="View Faculties"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
@@ -119,7 +126,6 @@
     <!-- Row 2 -->
 
     <LinearLayout
-        android:id="@+id/view_alumni"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
@@ -127,7 +133,6 @@
         android:weightSum="2">
 
         <android.support.design.card.MaterialCardView
-            android:id="@+id/upload_alumni"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/large_margin"
@@ -135,11 +140,12 @@
             android:layout_marginEnd="@dimen/medium_margin"
             android:layout_weight="1"
             app:strokeWidth="@dimen/small_radius"
-            app:strokeColor="@color/colorPrimaryDark"
+            app:strokeColor="@color/colorPrimary"
             app:cardCornerRadius="@dimen/small_radius"
             app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
+                android:id="@+id/upload_alumni"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/small_margin"
@@ -149,17 +155,19 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_above="@+id/upload_alumni_text"
                     android:layout_margin="@dimen/medium_margin"
-                    android:padding="@dimen/medium_padding"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingEnd="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
                     android:src="@drawable/upload_data_icon" />
 
                 <TextView
-                    android:id="@+id/upload_alumni_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/small_margin"
-                    android:padding="@dimen/small_padding"
+                    android:paddingBottom="@dimen/small_padding"
+                    android:paddingEnd="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
                     android:text="Upload Alumni"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
@@ -218,7 +226,7 @@
             android:layout_weight="1"
             app:cardCornerRadius="@dimen/small_radius"
             app:strokeWidth="@dimen/small_radius"
-            app:strokeColor="@color/colorPrimaryDark"
+            app:strokeColor="@color/colorPrimary"
             app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
@@ -233,7 +241,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/medium_margin"
-                    android:padding="@dimen/medium_padding"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingEnd="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
                     android:src="@drawable/search_icon" />
 
                 <TextView
@@ -241,7 +251,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/small_margin"
-                    android:padding="@dimen/small_padding"
+                    android:paddingBottom="@dimen/small_padding"
+                    android:paddingEnd="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
                     android:text="Custom Search"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"

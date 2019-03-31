@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ public class CustomSearch extends AppCompatActivity {
     private String name, branch, company, year, enrollmentNo;
     private Button search;
     private HashMap<String, String> searchOptions;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class CustomSearch extends AppCompatActivity {
         enrollmentNoField = findViewById(R.id.roll_noET);
         branchSpinner = findViewById(R.id.branch);
         search = findViewById(R.id.search);
+        progressBar = findViewById(R.id.progress_bar);
         searchOptions = new HashMap<>();
 
 
@@ -98,6 +101,7 @@ public class CustomSearch extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Enter at least 1 field", Toast.LENGTH_SHORT).show();
                 }
                 else {
+                    progressBar.setVisibility(View.VISIBLE);
                     Call<SearchResponse> call = service.customSearchRequest(searchOptions);
                     //Call<SearchResponse> call = service.searchRequest(name,branch,enrollmentNo,company);
                     call.enqueue(new Callback<SearchResponse>() {
@@ -121,7 +125,7 @@ public class CustomSearch extends AppCompatActivity {
 
                                 Toast.makeText(getApplicationContext(), "Cannot find alumni", Toast.LENGTH_SHORT).show();
                             }
-
+                            progressBar.setVisibility(View.INVISIBLE);
 
                         }
 
@@ -129,11 +133,22 @@ public class CustomSearch extends AppCompatActivity {
                         public void onFailure(Call<SearchResponse> call, Throwable t) {
                             Toast.makeText(getApplicationContext(), "Search Unsuccessful, server error", Toast.LENGTH_SHORT).show();
                             Log.v("request failed", t.toString());
+                            progressBar.setVisibility(View.INVISIBLE);
                         }
                     });
+                    flushStrings();
                 }
             }
         });
 
+    }
+
+    private void flushStrings(){
+        name = "";
+        branch = "";
+        company = "";
+        year = "";
+        enrollmentNo = "";
+        searchOptions = new HashMap<>();
     }
 }

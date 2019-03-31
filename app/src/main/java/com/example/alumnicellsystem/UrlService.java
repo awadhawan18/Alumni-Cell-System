@@ -1,5 +1,6 @@
 package com.example.alumnicellsystem;
 
+import com.example.alumnicellsystem.Responses.FacultyResponse;
 import com.example.alumnicellsystem.Responses.LoginResponse;
 import com.example.alumnicellsystem.Responses.SearchResponse;
 import com.example.alumnicellsystem.Responses.SignupResponse;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -129,4 +131,12 @@ public interface UrlService {
                                        @Field("branch")String branch,
                                        @Field("enrollment_no")String enrollmentNo,
                                        @Field("company_1")String company1);
+
+    @Multipart
+    @POST("dashboard/upload")
+    Call<ResponseBody> postExcel(@Part MultipartBody.Part file, @Part("upload") RequestBody name);
+
+    @POST("dashboard/viewfac")
+    Call<FacultyResponse> viewFaculty();
+
 }

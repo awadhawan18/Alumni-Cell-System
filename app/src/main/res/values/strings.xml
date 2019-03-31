@@ -32,5 +32,6 @@
     </string-array>
 
     <string name="base_url">https://bvpapp.herokuapp.com/</string>
+    <string name="title_activity_upload">Upload</string>
 
 </resources>
