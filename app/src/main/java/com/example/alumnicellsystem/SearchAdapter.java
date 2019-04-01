@@ -35,7 +35,13 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHold
         holder.studentName.setText(searchItem.getName());
         holder.studentBranch.setText(searchItem.getBranch());
         holder.studentCompany.setText(searchItem.getCompany1());
-        holder.studentRollNo.setText(searchItem.getEnrollmentNo());
+        if(!searchItem.getCompany2().isEmpty()){
+
+            holder.studentCompany.append("/" + searchItem.getCompany2());
+        }
+        holder.studentRollNo.setText("(" + searchItem.getEnrollmentNo() + ")");
+        holder.studentPhone.setText(searchItem.getMobile().toString() + "\n" + searchItem.getAlterMobile().toString());
+        holder.studentEmail.setText(searchItem.getEmail());
         /*holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +61,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHold
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView studentName, studentBranch, studentRollNo, studentCompany;
+        private TextView studentName, studentBranch, studentRollNo, studentCompany, studentPhone, studentEmail;
         private Context mContext;
 
         public MyViewHolder(View itemView) {
@@ -65,6 +71,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHold
             studentBranch = itemView.findViewById(R.id.branch);
             studentRollNo = itemView.findViewById(R.id.roll_no);
             studentCompany = itemView.findViewById(R.id.company);
+            studentPhone = itemView.findViewById(R.id.phone);
+            studentEmail = itemView.findViewById(R.id.email);
 
         }
 
