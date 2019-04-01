@@ -2,15 +2,13 @@ package com.example.alumnicellsystem.Responses;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class SearchItem implements Parcelable
 {
 
-    @SerializedName("S. No.")
-    @Expose
-    private Long sNo;
     @SerializedName("enrollment_no")
     @Expose
     private String enrollmentNo;
@@ -31,10 +29,10 @@ public class SearchItem implements Parcelable
     private String address;
     @SerializedName("mobile")
     @Expose
-    private Long mobile;
+    private String mobile;
     @SerializedName("alter_mobile")
     @Expose
-    private Long alterMobile;
+    private String alterMobile;
     @SerializedName("email")
     @Expose
     private String email;
@@ -44,6 +42,12 @@ public class SearchItem implements Parcelable
     @SerializedName("company_2")
     @Expose
     private String company2;
+    @SerializedName("_id")
+    @Expose
+    private String id;
+    @SerializedName("__v")
+    @Expose
+    private Long v;
     public final static Parcelable.Creator<SearchItem> CREATOR = new Creator<SearchItem>() {
 
 
@@ -62,29 +66,22 @@ public class SearchItem implements Parcelable
             ;
 
     protected SearchItem(Parcel in) {
-        this.sNo = ((Long) in.readValue((Long.class.getClassLoader())));
         this.enrollmentNo = ((String) in.readValue((String.class.getClassLoader())));
         this.branch = ((String) in.readValue((String.class.getClassLoader())));
         this.name = ((String) in.readValue((String.class.getClassLoader())));
         this.gender = ((String) in.readValue((String.class.getClassLoader())));
         this.dob = ((String) in.readValue((String.class.getClassLoader())));
         this.address = ((String) in.readValue((String.class.getClassLoader())));
-        this.mobile = ((Long) in.readValue((Long.class.getClassLoader())));
-        this.alterMobile = ((Long) in.readValue((Long.class.getClassLoader())));
+        this.mobile = ((String) in.readValue((String.class.getClassLoader())));
+        this.alterMobile = ((String) in.readValue((String.class.getClassLoader())));
         this.email = ((String) in.readValue((String.class.getClassLoader())));
         this.company1 = ((String) in.readValue((String.class.getClassLoader())));
         this.company2 = ((String) in.readValue((String.class.getClassLoader())));
+        this.id = ((String) in.readValue((String.class.getClassLoader())));
+        this.v = ((Long) in.readValue((Long.class.getClassLoader())));
     }
 
     public SearchItem() {
-    }
-
-    public Long getSNo() {
-        return sNo;
-    }
-
-    public void setSNo(Long sNo) {
-        this.sNo = sNo;
     }
 
     public String getEnrollmentNo() {
@@ -135,19 +132,19 @@ public class SearchItem implements Parcelable
         this.address = address;
     }
 
-    public Long getMobile() {
+    public String getMobile() {
         return mobile;
     }
 
-    public void setMobile(Long mobile) {
+    public void setMobile(String mobile) {
         this.mobile = mobile;
     }
 
-    public Long getAlterMobile() {
+    public String getAlterMobile() {
         return alterMobile;
     }
 
-    public void setAlterMobile(Long alterMobile) {
+    public void setAlterMobile(String alterMobile) {
         this.alterMobile = alterMobile;
     }
 
@@ -175,13 +172,28 @@ public class SearchItem implements Parcelable
         this.company2 = company2;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Long getV() {
+        return v;
+    }
+
+    public void setV(Long v) {
+        this.v = v;
+    }
+
     @Override
     public String toString() {
-        return new StringBuilder().append("sNo"+ sNo).append("enrollmentNo"+ enrollmentNo).append("branch"+ branch).append("name"+ name).append("gender"+ gender).append("dob"+ dob).append("address"+ address).append("mobile"+ mobile).append("alterMobile"+ alterMobile).append("email"+ email).append("company1"+ company1).append("company2"+ company2).toString();
+        return new StringBuilder().append("enrollmentNo"+ enrollmentNo).append("branch"+ branch).append("name"+ name).append("gender"+ gender).append("dob"+ dob).append("address"+ address).append("mobile"+ mobile).append("alterMobile"+ alterMobile).append("email"+ email).append("company1"+ company1).append("company2"+ company2).append("id"+ id).append("v"+ v).toString();
     }
 
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeValue(sNo);
         dest.writeValue(enrollmentNo);
         dest.writeValue(branch);
         dest.writeValue(name);
@@ -193,6 +205,8 @@ public class SearchItem implements Parcelable
         dest.writeValue(email);
         dest.writeValue(company1);
         dest.writeValue(company2);
+        dest.writeValue(id);
+        dest.writeValue(v);
     }
 
     public int describeContents() {
