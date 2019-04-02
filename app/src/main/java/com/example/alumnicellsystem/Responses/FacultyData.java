@@ -80,11 +80,6 @@ public class FacultyData implements Parcelable
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return new StringBuilder().append("name "+ name).append("department "+ department).append("designation "+ designation).append("email "+ email).toString();
-    }
-
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue(name);
         dest.writeValue(department);

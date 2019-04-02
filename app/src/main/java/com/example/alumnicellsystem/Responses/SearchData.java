@@ -12,9 +12,7 @@ public class SearchData implements Parcelable
     @SerializedName("item")
     @Expose
     private SearchItem searchItem;
-    @SerializedName("score")
-    @Expose
-    private Long score;
+
     public final static Parcelable.Creator<SearchData> CREATOR = new Creator<SearchData>() {
 
 
@@ -34,7 +32,6 @@ public class SearchData implements Parcelable
 
     protected SearchData(Parcel in) {
         this.searchItem = ((SearchItem) in.readValue((SearchItem.class.getClassLoader())));
-        this.score = ((Long) in.readValue((Long.class.getClassLoader())));
     }
 
     public SearchData() {
@@ -48,22 +45,13 @@ public class SearchData implements Parcelable
         this.searchItem = searchItem;
     }
 
-    public Long getScore() {
-        return score;
-    }
-
-    public void setScore(Long score) {
-        this.score = score;
-    }
-
     @Override
     public String toString() {
-        return new StringBuilder().append("item"+ searchItem).append("score"+ score).toString();
+        return new StringBuilder().append("item"+ searchItem).toString();
     }
 
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue(searchItem);
-        dest.writeValue(score);
     }
 
     public int describeContents() {
