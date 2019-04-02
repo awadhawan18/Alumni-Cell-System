@@ -31,17 +31,16 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHold
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         final SearchData searchData = this.searchData.get(position);
-        final SearchItem searchItem = searchData.getSearchItem();
-        holder.studentName.setText(searchItem.getName());
-        holder.studentBranch.setText(searchItem.getBranch());
-        holder.studentCompany.setText(searchItem.getCompany1());
-        if(!searchItem.getCompany2().isEmpty()){
+        holder.studentName.setText(searchData.getName());
+        holder.studentBranch.setText(searchData.getBranch());
+        holder.studentCompany.setText(searchData.getCompany1());
+        if(!searchData.getCompany2().isEmpty()){
 
-            holder.studentCompany.append("/" + searchItem.getCompany2());
+            holder.studentCompany.append("/" + searchData.getCompany2());
         }
-        holder.studentRollNo.setText("(" + searchItem.getEnrollmentNo() + ")");
-        holder.studentPhone.setText(searchItem.getMobile().toString() + "\n" + searchItem.getAlterMobile().toString());
-        holder.studentEmail.setText(searchItem.getEmail());
+        holder.studentRollNo.setText("(" + searchData.getEnrollmentNo() + ")");
+        holder.studentPhone.setText(searchData.getMobile().toString() + "\n" + searchData.getAlterMobile().toString());
+        holder.studentEmail.setText(searchData.getEmail());
         /*holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

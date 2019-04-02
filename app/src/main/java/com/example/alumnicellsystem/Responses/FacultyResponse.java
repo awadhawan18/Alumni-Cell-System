@@ -7,6 +7,7 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FacultyResponse implements Parcelable
@@ -17,7 +18,7 @@ public class FacultyResponse implements Parcelable
     private Long status;
     @SerializedName("data")
     @Expose
-    private List<FacultyData> data = null;
+    private List<FacultyData> data = new ArrayList<>();
     @SerializedName("message")
     @Expose
     private String message;
