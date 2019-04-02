@@ -1,5 +1,6 @@
 package com.example.alumnicellsystem.Responses;
 
+
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -68,11 +69,6 @@ public class FacultyResponse implements Parcelable
 
     public void setMessage(String message) {
         this.message = message;
-    }
-
-    @Override
-    public String toString() {
-        return new StringBuilder().append("status"+ status).append("data"+ data).append("message"+ message).toString();
     }
 
     public void writeToParcel(Parcel dest, int flags) {
