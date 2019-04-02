@@ -1,4 +1,3 @@
-
 package com.example.alumnicellsystem.Responses;
 
 import android.os.Parcel;
@@ -41,7 +40,7 @@ public class SearchResponse implements Parcelable
 
     protected SearchResponse(Parcel in) {
         this.status = ((Long) in.readValue((Long.class.getClassLoader())));
-        in.readList(this.data, (com.example.alumnicellsystem.Responses.SearchData.class.getClassLoader()));
+        in.readList(this.data, (SearchData.class.getClassLoader()));
         this.message = ((String) in.readValue((String.class.getClassLoader())));
     }
 
