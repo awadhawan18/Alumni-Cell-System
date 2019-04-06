@@ -6,17 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/white"
-    android:weightSum="5"
+    android:weightSum="6"
     tools:context=".Dashboard">
 
-    <ImageView
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/app_logo"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="@dimen/large_margin"
-        android:layout_marginStart="@dimen/large_margin"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -159,7 +151,7 @@
                     android:paddingTop="@dimen/small_padding"
                     android:paddingEnd="@dimen/small_padding"
                     android:paddingStart="@dimen/small_padding"
-                    android:src="@drawable/upload_data_icon" />
+                    android:src="@drawable/upload_icon" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -255,6 +247,147 @@
                     android:paddingEnd="@dimen/small_padding"
                     android:paddingStart="@dimen/small_padding"
                     android:text="Custom Search"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </android.support.design.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <android.support.design.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/large_margin"
+            android:layout_marginBottom="@dimen/large_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:layout_weight="1"
+            app:strokeWidth="@dimen/small_radius"
+            app:strokeColor="@color/colorPrimary"
+            app:cardCornerRadius="@dimen/small_radius"
+            app:cardElevation="@dimen/card_elevation">
+
+            <LinearLayout
+                android:id="@+id/add_alumni"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/small_margin"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/medium_margin"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingEnd="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
+                    android:src="@drawable/add_alumni_icon" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/small_margin"
+                    android:paddingBottom="@dimen/small_padding"
+                    android:paddingEnd="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
+                    android:text="Add Alumni"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </android.support.design.card.MaterialCardView>
+
+
+        <!-- Column 1 -->
+        <!--<android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/very_small_margin"
+            android:layout_weight="1"
+            app:cardCornerRadius="@dimen/small_radius"
+            app:cardElevation="@dimen/card_elevation">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/small_margin"
+                    android:padding="@dimen/small_padding"
+                    android:src="@drawable/alumni_icon" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/small_margin"
+                    android:padding="@dimen/small_padding"
+                    android:text="View Alumni"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>-->
+
+        <!-- Column 2 -->
+        <android.support.design.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/large_margin"
+            android:layout_marginBottom="@dimen/large_margin"
+            android:layout_weight="1"
+            app:cardCornerRadius="@dimen/small_radius"
+            app:strokeWidth="@dimen/small_radius"
+            app:strokeColor="@color/colorPrimary"
+            app:cardElevation="@dimen/card_elevation">
+
+            <LinearLayout
+                android:id="@+id/add_faculty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/medium_margin"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingEnd="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
+                    android:src="@drawable/add_faculty_icon" />
+
+                <TextView
+                    android:id="@+id/add_faculty_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/small_margin"
+                    android:paddingBottom="@dimen/small_padding"
+                    android:paddingEnd="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
+                    android:text="Add Faculty"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"

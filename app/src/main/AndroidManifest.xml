@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewFaculty"></activity>
+        <activity android:name=".AddFaculty"></activity>
+        <activity android:name=".ViewFaculty" />
         <activity
             android:name=".UploadActivity"
             android:label="@string/title_activity_upload" />

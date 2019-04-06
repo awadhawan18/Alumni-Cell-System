@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.alumnicellsystem.Responses.SearchData;
-import com.example.alumnicellsystem.Responses.SearchItem;
 
 import java.util.List;
 
