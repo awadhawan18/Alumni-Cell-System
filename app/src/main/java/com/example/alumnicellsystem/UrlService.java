@@ -1,5 +1,6 @@
 package com.example.alumnicellsystem;
 
+import com.example.alumnicellsystem.Responses.AddFacultyResponse;
 import com.example.alumnicellsystem.Responses.FacultyResponse;
 import com.example.alumnicellsystem.Responses.LoginResponse;
 import com.example.alumnicellsystem.Responses.SearchResponse;
@@ -124,13 +125,11 @@ public interface UrlService {
     @FormUrlEncoded
     Call<SearchResponse> customSearchRequest(@FieldMap Map<String, String> options);
 
-
-    @POST("dashboard/custom-search")
+    @POST("admindashboard/add")
     @FormUrlEncoded
-    Call<SearchResponse> searchRequest(@Field("name")String name,
-                                       @Field("branch")String branch,
-                                       @Field("enrollment_no")String enrollmentNo,
-                                       @Field("company_1")String company1);
+    Call<AddFacultyResponse> addFacultyRequest(@Field("email")String email,
+                                               @Field("role")int role,
+                                               @Field("active")int active);
 
     @Multipart
     @POST("dashboard/upload")

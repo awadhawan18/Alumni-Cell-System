@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 
 public class Dashboard extends AppCompatActivity {
 
-    private LinearLayout customSearch, uploadAlumni, profile, viewFaculty;
+    private LinearLayout customSearch, uploadAlumni, profile, viewFaculty, addFaculty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class Dashboard extends AppCompatActivity {
         profile = findViewById(R.id.profile);
         uploadAlumni = findViewById(R.id.upload_alumni);
         viewFaculty = findViewById(R.id.view_faculties);
+        addFaculty = findViewById(R.id.add_faculty);
 
         customSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +58,14 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), ViewFaculty.class));
+            }
+        });
+
+
+        addFaculty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), AddFaculty.class));
             }
         });
 
