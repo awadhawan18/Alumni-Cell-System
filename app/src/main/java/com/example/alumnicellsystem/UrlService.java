@@ -5,6 +5,7 @@ import com.example.alumnicellsystem.Responses.FacultyResponse;
 import com.example.alumnicellsystem.Responses.LoginResponse;
 import com.example.alumnicellsystem.Responses.SearchResponse;
 import com.example.alumnicellsystem.Responses.SignupResponse;
+import com.example.alumnicellsystem.Responses.UpdateAlumniResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -124,6 +126,10 @@ public interface UrlService {
     @POST("dashboard/custom-search")
     @FormUrlEncoded
     Call<SearchResponse> customSearchRequest(@FieldMap Map<String, String> options);
+
+    @PUT("dashboard/alumni/update")
+    @FormUrlEncoded
+    Call<UpdateAlumniResponse> updateAlumniRequest(@FieldMap Map<String, String> options);
 
     @POST("admindashboard/add")
     @FormUrlEncoded

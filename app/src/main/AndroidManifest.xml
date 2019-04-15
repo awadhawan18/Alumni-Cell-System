@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddFaculty"></activity>
+        <activity android:name=".ChoiceActivity"></activity>
+        <activity android:name=".AlumniOTP" />
+        <activity android:name=".AlumniLogin" />
+        <activity android:name=".AddFaculty" />
         <activity android:name=".ViewFaculty" />
         <activity
             android:name=".UploadActivity"
