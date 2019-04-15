@@ -36,7 +36,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                     startActivity(dashboard);
                 }
                 else {
-                    Intent homeIntent = new Intent(SplashScreenActivity.this, LoginActivity.class);
+                    Intent homeIntent = new Intent(SplashScreenActivity.this, ChoiceActivity.class);
                     startActivity(homeIntent);
                 }
 
