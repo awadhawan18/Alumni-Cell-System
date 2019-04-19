@@ -74,6 +74,7 @@ public class EnterOTP extends AppCompatActivity {
 
                                 if (otpResponse != null) {
                                     Log.v("OTP response ", otpResponse.toString());
+                                    Toast.makeText(getApplicationContext(), otpResponse.getMessage(), Toast.LENGTH_SHORT).show();
                                 }
 
                                 Toast.makeText(getApplicationContext(), "Wrong OTP", Toast.LENGTH_SHORT).show();

@@ -47,7 +47,7 @@ public class FragLogin extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        getActivity().setTitle("Login");
+        getActivity().setTitle("Faculty Login");
 
         signUp = getActivity().findViewById(R.id.signUpTxt);
         emailET = getActivity().findViewById(R.id.emailET);
@@ -104,8 +104,9 @@ public class FragLogin extends Fragment {
                             if(loginResponse != null && Utility.isStatusOk(loginResponse.getStatus())){
                                 Log.v("Login response ",loginResponse.toString());
 
-                                SharedPreferences.Editor memes = PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
-                                memes.putString("USER_EMAIL", email).apply();
+
+                                SharedPreferences.Editor memes = android.preference.PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
+                                memes.putString("User_Value", "1").apply();
                                 memes.commit();
 
                                 com.example.alumnicellsystem.PreferenceManager preferenceManager = new com.example.alumnicellsystem.PreferenceManager (getActivity(), loginResponse);
