@@ -21,7 +21,7 @@ public class Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        setTitle("Profile");
+        setTitle("Faculty Profile");
 
         nameET = findViewById(R.id.nameET);
         emailET = findViewById(R.id.emailET);
@@ -44,10 +44,11 @@ public class Profile extends AppCompatActivity {
             public void onClick(View v) {
 
                 SharedPreferences.Editor memes = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit();
-                memes.remove("PREF_COOKIES");
+                memes.remove("User_Value");
+                memes.remove("userDetail");
                 memes.commit();
 
-                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                startActivity(new Intent(getApplicationContext(), ChoiceActivity.class));
                 Profile.this.finish();
                 ((ResultReceiver)getIntent().getParcelableExtra("finisher")).send(1, new Bundle());
             }
