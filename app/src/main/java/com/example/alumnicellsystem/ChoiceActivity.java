@@ -1,6 +1,7 @@
 package com.example.alumnicellsystem;
 
 import android.content.Intent;
+import android.os.ResultReceiver;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,7 +31,16 @@ public class ChoiceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(getApplicationContext(), AlumniLogin.class));
+                Intent intent = new Intent(getApplicationContext(), AlumniLogin.class);
+                intent.putExtra("choiceFinisher", new ResultReceiver(null){
+
+                    @Override
+                    protected void onReceiveResult(int resultCode, Bundle resultData) {
+                        ChoiceActivity.this.finish();
+                    }
+                });
+
+                startActivity(intent);
             }
         });
     }

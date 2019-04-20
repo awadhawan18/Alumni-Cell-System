@@ -3,6 +3,7 @@ package com.example.alumnicellsystem;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.ResultReceiver;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -114,6 +115,7 @@ public class FragLogin extends Fragment {
 
                                 startActivity(new Intent(getActivity(), Dashboard.class));
                                 getActivity().finish();
+                                ((ResultReceiver)getActivity().getIntent().getParcelableExtra("choiceFinisher")).send(1, new Bundle());
                             }
                             else {
                                 if(loginResponse != null){

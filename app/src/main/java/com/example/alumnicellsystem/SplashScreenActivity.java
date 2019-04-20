@@ -40,7 +40,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                     Intent dashboard = new Intent(SplashScreenActivity.this, Dashboard.class);
                     startActivity(dashboard);
                 }else if(user!=null && user.equalsIgnoreCase("2")){
-                    Intent dashboard = new Intent(SplashScreenActivity.this, Dashboard.class);
+                    Intent dashboard = new Intent(SplashScreenActivity.this, AlumniDashboard.class);
                     startActivity(dashboard);
                 }
                 else {
