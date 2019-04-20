@@ -115,7 +115,6 @@ public class FragLogin extends Fragment {
 
                                 startActivity(new Intent(getActivity(), Dashboard.class));
                                 getActivity().finish();
-                                ((ResultReceiver)getActivity().getIntent().getParcelableExtra("choiceFinisher")).send(1, new Bundle());
                             }
                             else {
                                 if(loginResponse != null){
