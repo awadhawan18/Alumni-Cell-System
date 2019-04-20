@@ -55,23 +55,16 @@ public class PreferenceManager {
 
     public void writeAlumniPref(){
         AlumniLoginData loginData = alumniLoginResponse.getData();
-        String depart = loginData.getBranch();
-        int departmentCode = 0;
-        switch (depart){
 
-            case "CSE": departmentCode = 1;break;
-            case "ECE": departmentCode = 2;break;
-            case "IT": departmentCode = 3;break;
-            case "EEE": departmentCode = 4;break;
-            case "ICE": departmentCode = 5;break;
-            default: departmentCode = 1;
-        }
         SharedPreferences.Editor editor= sharedPreferences.edit();
         editor.putString("User", "2");
         editor.putString("Name", loginData.getName());
-        editor.putString("Department", (String.valueOf(departmentCode)));
+        editor.putString("Enrollment", loginData.getEnrollmentNo());
+        editor.putString("Department", loginData.getBranch());
         editor.putString("Email", loginData.getEmail());
         editor.putString("Contact", loginData.getMobile());
+        editor.putString("Address", loginData.getAddress());
+        editor.putString("Company", loginData.getCompany1());
         editor.apply();
     }
 }
