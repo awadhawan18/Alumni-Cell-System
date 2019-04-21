@@ -1,13 +1,15 @@
 package com.example.alumnicellsystem.Responses;
 
-import java.util.List;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class UpdateAlumniResponse implements Parcelable
+import java.util.ArrayList;
+import java.util.List;
+
+public class AlumniUpdateResponse implements Parcelable
 {
 
     @SerializedName("status")
@@ -15,34 +17,34 @@ public class UpdateAlumniResponse implements Parcelable
     private Long status;
     @SerializedName("data")
     @Expose
-    private List<Object> data = null;
+    private List<AlumniUpdateData> data = new ArrayList<>();
     @SerializedName("message")
     @Expose
     private String message;
-    public final static Parcelable.Creator<UpdateAlumniResponse> CREATOR = new Creator<UpdateAlumniResponse>() {
+    public final static Parcelable.Creator<AlumniUpdateResponse> CREATOR = new Creator<AlumniUpdateResponse>() {
 
 
         @SuppressWarnings({
                 "unchecked"
         })
-        public UpdateAlumniResponse createFromParcel(Parcel in) {
-            return new UpdateAlumniResponse(in);
+        public AlumniUpdateResponse createFromParcel(Parcel in) {
+            return new AlumniUpdateResponse(in);
         }
 
-        public UpdateAlumniResponse[] newArray(int size) {
-            return (new UpdateAlumniResponse[size]);
+        public AlumniUpdateResponse[] newArray(int size) {
+            return (new AlumniUpdateResponse[size]);
         }
 
     }
             ;
 
-    protected UpdateAlumniResponse(Parcel in) {
+    protected AlumniUpdateResponse(Parcel in) {
         this.status = ((Long) in.readValue((Long.class.getClassLoader())));
-        in.readList(this.data, (java.lang.Object.class.getClassLoader()));
+        in.readList(this.data, (AlumniUpdateData.class.getClassLoader()));
         this.message = ((String) in.readValue((String.class.getClassLoader())));
     }
 
-    public UpdateAlumniResponse() {
+    public AlumniUpdateResponse() {
     }
 
     public Long getStatus() {
@@ -53,11 +55,11 @@ public class UpdateAlumniResponse implements Parcelable
         this.status = status;
     }
 
-    public List<Object> getData() {
+    public List<AlumniUpdateData> getData() {
         return data;
     }
 
-    public void setData(List<Object> data) {
+    public void setData(List<AlumniUpdateData> data) {
         this.data = data;
     }
 
@@ -67,6 +69,11 @@ public class UpdateAlumniResponse implements Parcelable
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    @Override
+    public String toString() {
+        return new StringBuilder().append("status"+ status).append("data"+ data).append("message"+ message).toString();
     }
 
     public void writeToParcel(Parcel dest, int flags) {

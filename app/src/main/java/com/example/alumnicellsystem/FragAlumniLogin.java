@@ -113,9 +113,9 @@ public class FragAlumniLogin extends Fragment {
                                 memes.putString("User_Value", "2").apply();
                                 memes.commit();
 
-                                com.example.alumnicellsystem.PreferenceManager preferenceManager =
-                                        new com.example.alumnicellsystem.PreferenceManager (getActivity(), loginResponse);
-                                preferenceManager.writeAlumniPref();
+                                MyPreferenceManager myPreferenceManager =
+                                        new MyPreferenceManager(getActivity(), loginResponse);
+                                myPreferenceManager.writeAlumniPref();
 
                                 startActivity(new Intent(getActivity(), AlumniDashboard.class));
                                 getActivity().finish();

@@ -30,7 +30,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                //HashSet<String> cookies = (HashSet<String>) PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getStringSet(PREF_COOKIES, new HashSet<String>());
+                //HashSet<String> cookies = (HashSet<String>) MyPreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getStringSet(PREF_COOKIES, new HashSet<String>());
 
                 String user = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("User_Value", "0");
 
