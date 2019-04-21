@@ -3,8 +3,6 @@ package com.example.alumnicellsystem;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.ResultReceiver;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,7 +17,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.alumnicellsystem.Responses.LoginData;
 import com.example.alumnicellsystem.Responses.LoginResponse;
 import com.example.alumnicellsystem.Utils.Utility;
 
@@ -110,8 +107,8 @@ public class FragLogin extends Fragment {
                                 memes.putString("User_Value", "1").apply();
                                 memes.commit();
 
-                                com.example.alumnicellsystem.PreferenceManager preferenceManager = new com.example.alumnicellsystem.PreferenceManager (getActivity(), loginResponse);
-                                preferenceManager.writePref();
+                                MyPreferenceManager myPreferenceManager = new MyPreferenceManager(getActivity(), loginResponse);
+                                myPreferenceManager.writePref();
 
                                 startActivity(new Intent(getActivity(), Dashboard.class));
                                 getActivity().finish();

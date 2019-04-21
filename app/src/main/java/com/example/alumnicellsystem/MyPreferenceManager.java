@@ -7,23 +7,28 @@ import com.example.alumnicellsystem.Constants.DesignationValues;
 import com.example.alumnicellsystem.R;
 import com.example.alumnicellsystem.Responses.AlumniLoginData;
 import com.example.alumnicellsystem.Responses.AlumniLoginResponse;
+import com.example.alumnicellsystem.Responses.AlumniUpdateData;
 import com.example.alumnicellsystem.Responses.LoginData;
 import com.example.alumnicellsystem.Responses.LoginResponse;
 
-public class PreferenceManager {
+public class MyPreferenceManager {
 
     private SharedPreferences sharedPreferences;
     private Context context;
     private LoginResponse loginResponse;
     private AlumniLoginResponse alumniLoginResponse;
 
-    public PreferenceManager(Context context, LoginResponse loginResponse) {
+    public MyPreferenceManager(Context context) {
+        this.context = context;
+    }
+
+    public MyPreferenceManager(Context context, LoginResponse loginResponse) {
         this.context = context;
         sharedPreferences = context.getSharedPreferences("userDetail", Context.MODE_PRIVATE);
         this.loginResponse = loginResponse;
     }
 
-    public PreferenceManager(Context context, AlumniLoginResponse loginResponse){
+    public MyPreferenceManager(Context context, AlumniLoginResponse loginResponse){
         this.context = context;
         sharedPreferences = context.getSharedPreferences("alumniDetails", Context.MODE_PRIVATE);
         this.alumniLoginResponse = loginResponse;
@@ -58,6 +63,7 @@ public class PreferenceManager {
 
         SharedPreferences.Editor editor= sharedPreferences.edit();
         editor.putString("User", "2");
+        editor.putString("id", loginData.getId());
         editor.putString("Name", loginData.getName());
         editor.putString("Enrollment", loginData.getEnrollmentNo());
         editor.putString("Department", loginData.getBranch());
@@ -65,6 +71,20 @@ public class PreferenceManager {
         editor.putString("Contact", loginData.getMobile());
         editor.putString("Address", loginData.getAddress());
         editor.putString("Company", loginData.getCompany1());
+        editor.apply();
+    }
+
+    public void updateAlumniPref(AlumniUpdateData alumniUpdateData){
+        SharedPreferences.Editor editor = context.getSharedPreferences("alumniDetails", Context.MODE_PRIVATE).edit();
+        editor.putString("User", "2");
+        editor.putString("id", alumniUpdateData.getId());
+        editor.putString("Name", alumniUpdateData.getName());
+        editor.putString("Enrollment", alumniUpdateData.getEnrollmentNo());
+        editor.putString("Department", alumniUpdateData.getBranch());
+        editor.putString("Email", alumniUpdateData.getEmail());
+        editor.putString("Contact", alumniUpdateData.getMobile());
+        editor.putString("Address", alumniUpdateData.getAddress());
+        editor.putString("Company", alumniUpdateData.getCompany1());
         editor.apply();
     }
 }
