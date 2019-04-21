@@ -50,6 +50,12 @@ public class AlumniProfile extends AppCompatActivity {
         OkHttpClient client = new OkHttpClient();
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
+
+        builder.addInterceptor(new AddCookiesInterceptor(getApplicationContext())); // VERY VERY IMPORTANT
+        builder.addInterceptor(new ReceivedCookiesInterceptor(getApplicationContext())); // VERY VERY IMPORTANT
+        client = builder.build();
+
+
         final Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(getString(R.string.base_url))
                 .client(client)
@@ -78,7 +84,7 @@ public class AlumniProfile extends AppCompatActivity {
                 }
                 else {
 
-
+                    Log.v("values ; ", id);
                     Call<AlumniUpdateResponse> call = service.updateAlumni(email, address, contact, company, id);
                     call.enqueue(new Callback<AlumniUpdateResponse>() {
                         @Override

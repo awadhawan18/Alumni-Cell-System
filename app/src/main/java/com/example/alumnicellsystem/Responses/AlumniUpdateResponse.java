@@ -1,3 +1,4 @@
+
 package com.example.alumnicellsystem.Responses;
 
 import android.os.Parcel;
@@ -6,7 +7,6 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AlumniUpdateResponse implements Parcelable
@@ -17,7 +17,7 @@ public class AlumniUpdateResponse implements Parcelable
     private Long status;
     @SerializedName("data")
     @Expose
-    private List<AlumniUpdateData> data = new ArrayList<>();
+    private List<AlumniUpdateData> data = null;
     @SerializedName("message")
     @Expose
     private String message;
@@ -40,7 +40,7 @@ public class AlumniUpdateResponse implements Parcelable
 
     protected AlumniUpdateResponse(Parcel in) {
         this.status = ((Long) in.readValue((Long.class.getClassLoader())));
-        in.readList(this.data, (AlumniUpdateData.class.getClassLoader()));
+        in.readList(this.data, (com.example.alumnicellsystem.Responses.AlumniUpdateData.class.getClassLoader()));
         this.message = ((String) in.readValue((String.class.getClassLoader())));
     }
 
