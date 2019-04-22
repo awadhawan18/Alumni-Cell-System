@@ -8,14 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.alumnicellsystem.Responses.ViewEventsData;
+import com.example.alumnicellsystem.Responses.ViewEventsData;
+import com.example.alumnicellsystem.Utils.Utility;
+
 import java.util.List;
 
 public class ViewEventsAdapter extends RecyclerView.Adapter<ViewEventsAdapter.MyViewHolder> {
 
     private Context mContext;
-    private List eventsData;
+    private List<ViewEventsData> eventsData;
 
-    public ViewEventsAdapter(Context mContext, List eventsData) {
+    public ViewEventsAdapter(Context mContext, List<ViewEventsData> eventsData) {
 
         this.mContext = mContext;
         this.eventsData = eventsData;
@@ -29,7 +33,12 @@ public class ViewEventsAdapter extends RecyclerView.Adapter<ViewEventsAdapter.My
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewEventsAdapter.MyViewHolder myViewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewEventsAdapter.MyViewHolder holder, int i) {
+        ViewEventsData viewEventsData = eventsData.get(i);
+        holder.title.setText(viewEventsData.getTitle().toUpperCase());
+        holder.date.setText(viewEventsData.getDatetime());
+        holder.venue.setText(viewEventsData.getVenue());
+        holder.description.setText(viewEventsData.getDescription());
 
     }
 
