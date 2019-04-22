@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddEvents">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/title"
+        android:layout_marginTop="16dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/titleET"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:paddingBottom="16dp"
+            android:paddingStart="8dp"
+            android:inputType="text"
+            android:hint="Title"
+            android:textColor="#000"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/date"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/title">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/dateET"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:paddingBottom="16dp"
+            android:paddingStart="8dp"
+            android:inputType="text"
+            android:hint="Date"
+            android:textColor="#000"
+            android:clickable="true"
+            android:focusable="false"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/lin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/date"
+        android:orientation="horizontal">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/startTime"
+            android:layout_marginTop="16dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:id="@+id/startTimeET"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:paddingBottom="16dp"
+                android:paddingStart="8dp"
+                android:inputType="text"
+                android:hint="Start Time"
+                android:textColor="#000"
+                android:clickable="true"
+                android:focusable="false"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/endTime"
+            android:layout_marginTop="16dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:id="@+id/endTimeET"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:paddingBottom="16dp"
+                android:paddingStart="8dp"
+                android:inputType="text"
+                android:hint="End Time"
+                android:textColor="#000"
+                android:clickable="true"
+                android:focusable="false"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/desc"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/lin">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/descriptionET"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:paddingBottom="16dp"
+            android:paddingStart="8dp"
+            android:inputType="textMultiLine"
+            android:maxLines="4"
+            android:hint="Description"
+            android:textColor="#000"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:text="Add Event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addEventBtn"
+        android:layout_below="@id/desc"
+        android:padding="16dp"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="@drawable/button_gradient"
+        android:textColor="@android:color/white"/>
+
+</RelativeLayout>
