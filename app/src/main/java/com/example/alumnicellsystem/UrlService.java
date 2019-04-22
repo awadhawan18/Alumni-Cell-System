@@ -1,5 +1,6 @@
 package com.example.alumnicellsystem;
 
+import com.example.alumnicellsystem.Responses.AddEventResponse;
 import com.example.alumnicellsystem.Responses.AddFacultyResponse;
 import com.example.alumnicellsystem.Responses.AlumniConfirmResponse;
 import com.example.alumnicellsystem.Responses.AlumniLoginResponse;
@@ -174,5 +175,12 @@ public interface UrlService {
 
     @GET("getevents")
     Call<ViewEventsResponse> getEvents();
+
+    @POST("dashboard/addevent")
+    @FormUrlEncoded
+    Call<AddEventResponse> addEventRequest(@Field("title")String title,
+                                             @Field("venue")String venue,
+                                             @Field("datetime")String dateTime,
+                                           @Field("description")String description);
 
 }

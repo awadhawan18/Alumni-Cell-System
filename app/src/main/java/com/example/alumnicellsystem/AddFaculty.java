@@ -37,14 +37,6 @@ public class AddFaculty extends AppCompatActivity {
         progressBar = findViewById(R.id.progress_bar);
 
 
-        addFaculty.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-
         OkHttpClient client = new OkHttpClient();
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
