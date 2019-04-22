@@ -4,11 +4,11 @@ import com.example.alumnicellsystem.Responses.AddFacultyResponse;
 import com.example.alumnicellsystem.Responses.AlumniConfirmResponse;
 import com.example.alumnicellsystem.Responses.AlumniLoginResponse;
 import com.example.alumnicellsystem.Responses.AlumniSignupResponse;
+import com.example.alumnicellsystem.Responses.AlumniUpdateResponse;
 import com.example.alumnicellsystem.Responses.FacultyResponse;
 import com.example.alumnicellsystem.Responses.LoginResponse;
 import com.example.alumnicellsystem.Responses.SearchResponse;
 import com.example.alumnicellsystem.Responses.SignupResponse;
-//import com.example.alumnicellsystem.Responses.UpdateAlumniResponse;
 
 import java.util.Map;
 
@@ -23,6 +23,7 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Part;
+
 
 
 public interface UrlService {
@@ -160,5 +161,13 @@ public interface UrlService {
 
     @POST("dashboard/viewfac")
     Call<FacultyResponse> viewFaculty();
+
+    @PUT("alumnidashboard/update")
+    @FormUrlEncoded
+    Call<AlumniUpdateResponse> updateAlumni(@Field("email")String email,
+                                            @Field("address")String address,
+                                            @Field("mobile")String mobile,
+                                            @Field("company_1")String company,
+                                            @Field("_id")String id);
 
 }

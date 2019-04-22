@@ -6,13 +6,28 @@ import android.os.ResultReceiver;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.alumnicellsystem.Constants.UserFields;
+import com.example.alumnicellsystem.Responses.AlumniUpdateResponse;
+import com.example.alumnicellsystem.Utils.Utility;
+
+import okhttp3.OkHttpClient;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AlumniProfile extends AppCompatActivity {
 
-    private EditText nameET, enrollmentET, branchET, companyET, emailET, contactEt, addressET;
+    private EditText nameET, enrollmentET, branchET, companyET, emailET, contactET, addressET;
+    private String name, email, contact, company, address, id;
     private Button update, logout;
 
     @Override
@@ -25,17 +40,83 @@ public class AlumniProfile extends AppCompatActivity {
         branchET = findViewById(R.id.branchET);
         companyET = findViewById(R.id.companyET);
         emailET = findViewById(R.id.emailET);
-        contactEt = findViewById(R.id.contactET);
+        contactET = findViewById(R.id.contactET);
         addressET = findViewById(R.id.addressET);
 
         update = findViewById(R.id.updateBtn);
         logout = findViewById(R.id.logoutBtn);
 
+
+        OkHttpClient client = new OkHttpClient();
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+
+
+        builder.addInterceptor(new AddCookiesInterceptor(getApplicationContext())); // VERY VERY IMPORTANT
+        builder.addInterceptor(new ReceivedCookiesInterceptor(getApplicationContext())); // VERY VERY IMPORTANT
+        client = builder.build();
+
+
+        final Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(getString(R.string.base_url))
+                .client(client)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        final UrlService service = retrofit.create(UrlService.class);
+
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //TODO: Updation code comes here.
+                email = emailET.getText().toString();
+                contact = contactET.getText().toString();
+                company = companyET.getText().toString();
+                address = addressET.getText().toString();
+
+                if(TextUtils.isEmpty(email) || TextUtils.isEmpty(address) || TextUtils.isEmpty(contact) || TextUtils.isEmpty(company) ){
+                    Toast.makeText(getApplicationContext(), "Enter all fields", Toast.LENGTH_SHORT).show();
+                }
+                else if(!Utility.isValidEmail(email)){
+                    Toast.makeText(getApplicationContext(), "Please enter valid email", Toast.LENGTH_LONG).show();
+                }
+                else if(!Utility.isValidPhoneNo(contact)){
+                    Toast.makeText(getApplicationContext(), "Please enter valid mobile number", Toast.LENGTH_LONG).show();
+                }
+                else {
+
+                    Log.v("values ; ", id);
+                    Call<AlumniUpdateResponse> call = service.updateAlumni(email, address, contact, company, id);
+                    call.enqueue(new Callback<AlumniUpdateResponse>() {
+                        @Override
+                        public void onResponse(Call<AlumniUpdateResponse> call, Response<AlumniUpdateResponse> response) {
+                            AlumniUpdateResponse alumniUpdateResponse = response.body();
+
+
+                            if(alumniUpdateResponse != null && Utility.isStatusOk(alumniUpdateResponse.getStatus())){
+                                Log.v("Update response ",alumniUpdateResponse.toString());
+                                Toast.makeText(getApplicationContext(), alumniUpdateResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                                MyPreferenceManager myPreferenceManager = new MyPreferenceManager(getApplicationContext());
+                                myPreferenceManager.updateAlumniPref(alumniUpdateResponse.getData().get(0));
+                            }
+                            else {
+                                if(alumniUpdateResponse != null){
+                                    Toast.makeText(getApplicationContext(), alumniUpdateResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                                    Log.v("Update response ",alumniUpdateResponse.toString());
+                                }
+
+                                Toast.makeText(getApplicationContext(), "Failed to update profile", Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<AlumniUpdateResponse> call, Throwable t) {
+                            Toast.makeText(getApplicationContext(), "Update Unsuccessful", Toast.LENGTH_SHORT).show();
+                            Log.v("Update Failed : ", t.toString());
+                        }
+                    });
+                }
+
             }
         });
 
@@ -60,7 +141,8 @@ public class AlumniProfile extends AppCompatActivity {
         branchET.setText(details.getString("Department", null));
         companyET.setText(details.getString("Company", null));
         emailET.setText(details.getString("Email", null));
-        contactEt.setText(details.getString("Contact", null));
+        contactET.setText(details.getString("Contact", null));
         addressET.setText(details.getString("Address", null));
+        id = details.getString("id",null);
     }
 }
