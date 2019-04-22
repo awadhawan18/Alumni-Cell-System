@@ -46,4 +46,8 @@ public class Utility {
         String[] designations = mContext.getResources().getStringArray(R.array.designation);
         return designations[number];
     }
+
+    public static String getEventTime(String date, String startTime, String endTime){
+        return date.concat(", ").concat(startTime).concat("-").concat(endTime);
+    }
 }

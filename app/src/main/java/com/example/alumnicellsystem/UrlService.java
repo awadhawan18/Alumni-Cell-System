@@ -1,5 +1,6 @@
 package com.example.alumnicellsystem;
 
+import com.example.alumnicellsystem.Responses.AddEventResponse;
 import com.example.alumnicellsystem.Responses.AddFacultyResponse;
 import com.example.alumnicellsystem.Responses.AlumniConfirmResponse;
 import com.example.alumnicellsystem.Responses.AlumniLoginResponse;
@@ -9,6 +10,7 @@ import com.example.alumnicellsystem.Responses.FacultyResponse;
 import com.example.alumnicellsystem.Responses.LoginResponse;
 import com.example.alumnicellsystem.Responses.SearchResponse;
 import com.example.alumnicellsystem.Responses.SignupResponse;
+import com.example.alumnicellsystem.Responses.ViewEventsResponse;
 
 import java.util.Map;
 
@@ -19,6 +21,7 @@ import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -169,5 +172,15 @@ public interface UrlService {
                                             @Field("mobile")String mobile,
                                             @Field("company_1")String company,
                                             @Field("_id")String id);
+
+    @GET("getevents")
+    Call<ViewEventsResponse> getEvents();
+
+    @POST("dashboard/addevent")
+    @FormUrlEncoded
+    Call<AddEventResponse> addEventRequest(@Field("title")String title,
+                                             @Field("venue")String venue,
+                                             @Field("datetime")String dateTime,
+                                           @Field("description")String description);
 
 }

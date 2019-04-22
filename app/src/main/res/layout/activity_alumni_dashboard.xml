@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".AlumniDashboard">
 
+    <include layout="@layout/view_events_layout"/>
+
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/alumniProfileFab"
         android:layout_width="wrap_content"

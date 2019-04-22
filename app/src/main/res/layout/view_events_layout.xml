@@ -15,9 +15,18 @@
         android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No results Found"
+        android:text="No events Found"
         android:textColor="@color/color_text_dark"
         android:textSize="@dimen/text_size_medium"
         android:layout_centerInParent="true"/>
+
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_margin"
+        android:visibility="invisible"
+        android:layout_gravity="center"/>
 
 </RelativeLayout>
