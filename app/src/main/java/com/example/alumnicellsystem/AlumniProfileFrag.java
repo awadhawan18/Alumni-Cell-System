@@ -90,7 +90,7 @@ public class AlumniProfileFrag extends Fragment {
                 address = addressET.getText().toString();
 
                 final ProgressDialog progressDialog = new ProgressDialog(getContext());
-                progressDialog.setMessage("Logging In...");
+                progressDialog.setMessage("Updating...");
                 progressDialog.setCancelable(false);
 
                 if(TextUtils.isEmpty(email) || TextUtils.isEmpty(address) || TextUtils.isEmpty(contact) || TextUtils.isEmpty(company) ){

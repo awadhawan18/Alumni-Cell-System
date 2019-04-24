@@ -50,6 +50,7 @@ public class MyPreferenceManager {
         }
         SharedPreferences.Editor editor= sharedPreferences.edit();
         editor.putString("User", "1");
+        editor.putLong("Role", loginData.getRole());
         editor.putString("Name", loginData.getName());
         editor.putString("Designation", loginData.getDesignation().toString());
         editor.putString("Department", (String.valueOf(departmentCode)));
@@ -63,6 +64,7 @@ public class MyPreferenceManager {
 
         SharedPreferences.Editor editor= sharedPreferences.edit();
         editor.putString("User", "2");
+        editor.putLong("Role", loginData.getRole());
         editor.putString("id", loginData.getId());
         editor.putString("Name", loginData.getName());
         editor.putString("Enrollment", loginData.getEnrollmentNo());
