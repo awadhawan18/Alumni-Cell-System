@@ -177,8 +177,9 @@
                 android:layout_below="@id/address"
                 android:orientation="horizontal"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="16dp">
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="@dimen/large_margin">
 
                 <Button
                     android:id="@+id/updateBtn"

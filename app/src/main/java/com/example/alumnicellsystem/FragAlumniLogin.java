@@ -1,5 +1,6 @@
 package com.example.alumnicellsystem;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -90,6 +91,10 @@ public class FragAlumniLogin extends Fragment {
                 enrollmentNo = enrollmentNoET.getText().toString();
                 password = passwordET.getText().toString();
 
+                final ProgressDialog progressDialog = new ProgressDialog(getContext());
+                progressDialog.setMessage("Logging In...");
+                progressDialog.setCancelable(false);
+
                 if(TextUtils.isEmpty(enrollmentNo) || TextUtils.isEmpty(password)){
                     Toast.makeText(getActivity(), "Enter all fields", Toast.LENGTH_SHORT).show();
                 }
@@ -97,6 +102,8 @@ public class FragAlumniLogin extends Fragment {
                     Toast.makeText(getActivity(), "Please enter valid enrollment No", Toast.LENGTH_SHORT).show();
                 }*/
                 else{
+
+                    progressDialog.show();
 
                     Call<AlumniLoginResponse> call = service.alumniLoginRequest(enrollmentNo, password);
                     call.enqueue(new Callback<AlumniLoginResponse>() {
@@ -107,7 +114,7 @@ public class FragAlumniLogin extends Fragment {
                             if(loginResponse != null && Utility.isStatusOk(loginResponse.getStatus())){
                                 Log.v("Login response ",loginResponse.toString());
 
-                                Toast.makeText(getActivity(), loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(getActivity(), loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
 
                                 SharedPreferences.Editor memes = android.preference.PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
                                 memes.putString("User_Value", "2").apply();
@@ -117,7 +124,7 @@ public class FragAlumniLogin extends Fragment {
                                         new MyPreferenceManager(getActivity(), loginResponse);
                                 myPreferenceManager.writeAlumniPref();
 
-                                startActivity(new Intent(getActivity(), AlumniDashboard.class));
+                                startActivity(new Intent(getActivity(), AlumniDashboardNew.class));
                                 getActivity().finish();
                                 ((ResultReceiver)getActivity().getIntent().getParcelableExtra("choiceFinisher")).send(1, new Bundle());
                             }
@@ -130,6 +137,10 @@ public class FragAlumniLogin extends Fragment {
                                 Toast.makeText(getActivity(), "Wrong enrollmentNo or password", Toast.LENGTH_SHORT).show();
                             }
 
+                            if(progressDialog.isShowing()){
+
+                                progressDialog.dismiss();
+                            }
 
                         }
 

@@ -26,7 +26,7 @@
                 android:layout_marginBottom="16dp"
                 android:paddingBottom="16dp"
                 android:paddingStart="8dp"
-                android:inputType="textEmailAddress"
+                android:inputType="number"
                 android:hint="Enter your enrollment Number"
                 android:textColor="#000"/>
 

@@ -24,6 +24,8 @@
             android:paddingBottom="16dp"
             android:paddingStart="8dp"
             android:inputType="textMultiLine"
+            android:clickable="true"
+            android:focusable="false"
             android:textIsSelectable="false"
             android:hint="File Path"
             android:textColor="#000"/>

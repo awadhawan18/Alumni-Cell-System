@@ -13,9 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddEvents"></activity>
-        <activity android:name=".AlumniDashboard" />
-        <activity android:name=".AlumniProfile" />
+        <activity
+            android:name=".AlumniDashboardNew"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/title_activity_alumni_dashboard_new"></activity>
+        <activity android:name=".AddEvents" />
         <activity android:name=".ChoiceActivity" />
         <activity android:name=".AlumniOTP" />
         <activity android:name=".AlumniLogin" />
@@ -28,6 +30,7 @@
             android:name=".Profile"
             android:windowSoftInputMode="stateHidden" />
         <activity android:name=".AlumniList" />
+        <activity android:name=".ViewEvents" />
         <activity android:name=".YearwiseSearch" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".Dashboard" />

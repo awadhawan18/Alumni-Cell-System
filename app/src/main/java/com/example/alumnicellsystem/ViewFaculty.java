@@ -32,6 +32,8 @@ public class ViewFaculty extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_faculty);
 
+        setTitle("Faculties");
+
         progressBar = findViewById(R.id.progress_bar);
         recyclerView = findViewById(R.id.search_results);
         llm = new LinearLayoutManager(getApplicationContext());
