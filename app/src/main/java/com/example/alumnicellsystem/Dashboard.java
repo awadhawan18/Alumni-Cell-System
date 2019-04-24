@@ -1,7 +1,9 @@
 package com.example.alumnicellsystem;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.ResultReceiver;
+import android.support.design.card.MaterialCardView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.LinearLayout;
 public class Dashboard extends AppCompatActivity {
 
     private LinearLayout customSearch, uploadAlumni, profile, viewFaculty, addFaculty, addEvents, viewEvents;
+    private MaterialCardView addFacultyCardView, uploadAlumniCardView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,9 @@ public class Dashboard extends AppCompatActivity {
         addEvents = findViewById(R.id.add_events);
         viewEvents = findViewById(R.id.view_events);
 
+        addFacultyCardView = findViewById(R.id.add_faculty_cardview);
+        uploadAlumniCardView = findViewById(R.id.upload_alumni_cardview);
+
         customSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,18 +39,11 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
-        uploadAlumni.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), UploadActivity.class));
-            }
-        });
-
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Profile.class);
-                intent.putExtra("finisher", new ResultReceiver(null){
+                intent.putExtra("finisher", new ResultReceiver(null) {
 
                     @Override
                     protected void onReceiveResult(int resultCode, Bundle resultData) {
@@ -64,13 +63,6 @@ public class Dashboard extends AppCompatActivity {
         });
 
 
-        addFaculty.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), AddFaculty.class));
-            }
-        });
-
         addEvents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,6 +78,30 @@ public class Dashboard extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), ViewEvents.class));
             }
         });
+
+        addFaculty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), AddFaculty.class));
+            }
+        });
+
+        uploadAlumni.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), UploadActivity.class));
+            }
+        });
+
+        SharedPreferences details = getSharedPreferences("userDetail", MODE_PRIVATE);
+        Long role = details.getLong("Role",0);
+
+        if (role==1){
+            addFacultyCardView.setVisibility(View.INVISIBLE);
+            uploadAlumniCardView.setVisibility(View.INVISIBLE);
+        }
+
+
 
     }
 
