@@ -9,7 +9,8 @@
         android:id="@+id/search_results"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="@dimen/medium_margin"/>
 
     <TextView
         android:id="@+id/no_results"

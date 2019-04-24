@@ -1,10 +1,8 @@
 package com.example.alumnicellsystem;
 
-import android.content.Intent;
-import android.os.ResultReceiver;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -23,37 +21,19 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class AlumniDashboard extends AppCompatActivity {
+public class ViewEvents extends AppCompatActivity {
 
-    private FloatingActionButton fab;
     private ProgressBar progressBar;
     private ViewEventsAdapter viewEventsAdapter;
     private RecyclerView recyclerView;
     private LinearLayoutManager llm;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_alumni_dashboard);
+        setContentView(R.layout.view_events_layout);
 
-        fab = findViewById(R.id.alumniProfileFab);
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(getApplicationContext(), AlumniProfile.class);
-                intent.putExtra("finisher", new ResultReceiver(null){
-
-                    @Override
-                    protected void onReceiveResult(int resultCode, Bundle resultData) {
-                        AlumniDashboard.this.finish();
-                    }
-                });
-
-                startActivity(intent);
-            }
-        });
+        setTitle("Events");
 
         progressBar = findViewById(R.id.progress_bar);
         recyclerView = findViewById(R.id.eventsResult);

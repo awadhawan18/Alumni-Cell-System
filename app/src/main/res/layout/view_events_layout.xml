@@ -8,7 +8,8 @@
         android:id="@+id/eventsResult"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="@dimen/medium_margin"/>
 
     <TextView
         android:id="@+id/no_results"
@@ -27,6 +28,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/small_margin"
         android:visibility="invisible"
-        android:layout_gravity="center"/>
+        android:layout_centerInParent="true"/>
 
 </RelativeLayout>

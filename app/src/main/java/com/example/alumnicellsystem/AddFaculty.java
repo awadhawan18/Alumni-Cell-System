@@ -32,6 +32,8 @@ public class AddFaculty extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_faculty);
 
+        setTitle("Add Faculty");
+
         emailField = findViewById(R.id.faculty_emailEt);
         addFaculty = findViewById(R.id.add_faculty);
         progressBar = findViewById(R.id.progress_bar);

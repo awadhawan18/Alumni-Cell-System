@@ -1,8 +1,10 @@
 package com.example.alumnicellsystem;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.ResultReceiver;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -85,6 +87,10 @@ public class FragLogin extends Fragment {
                 email = emailET.getText().toString();
                 password = passwordET.getText().toString();
 
+                final ProgressDialog progressDialog = new ProgressDialog(getContext());
+                progressDialog.setMessage("Logging In...");
+                progressDialog.setCancelable(false);
+
                 if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
                     Toast.makeText(getActivity(), "Enter all fields", Toast.LENGTH_SHORT).show();
                 }
@@ -92,6 +98,8 @@ public class FragLogin extends Fragment {
                     Toast.makeText(getActivity(), "Please enter valid email", Toast.LENGTH_SHORT).show();
                 }
                 else{
+
+                    progressDialog.show();
 
                     Call<LoginResponse> call = service.loginRequest(email, password);
                     call.enqueue(new Callback<LoginResponse>() {
@@ -112,6 +120,7 @@ public class FragLogin extends Fragment {
 
                                 startActivity(new Intent(getActivity(), Dashboard.class));
                                 getActivity().finish();
+                                ((ResultReceiver)getActivity().getIntent().getParcelableExtra("choiceFinisher")).send(1, new Bundle());
                             }
                             else {
                                 if(loginResponse != null){
@@ -121,7 +130,10 @@ public class FragLogin extends Fragment {
                                 Toast.makeText(getActivity(), "Wrong email or password", Toast.LENGTH_SHORT).show();
                             }
 
+                            if(progressDialog.isShowing()){
 
+                                progressDialog.dismiss();
+                            }
                         }
 
                         @Override

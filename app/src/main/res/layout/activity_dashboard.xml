@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/white"
-    android:weightSum="6"
+    android:weightSum="8"
     tools:context=".Dashboard">
 
 
@@ -81,14 +81,14 @@
                 android:id="@+id/view_faculties"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="16dp"
+                android:layout_margin="@dimen/medium_margin"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/medium_margin"
+                    android:layout_margin="@dimen/small_margin"
                     android:paddingTop="@dimen/small_padding"
                     android:paddingEnd="@dimen/small_padding"
                     android:paddingStart="@dimen/small_padding"
@@ -137,7 +137,7 @@
             app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
-                android:id="@+id/upload_alumni"
+                android:id="@+id/custom_search"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/small_margin"
@@ -151,7 +151,7 @@
                     android:paddingTop="@dimen/small_padding"
                     android:paddingEnd="@dimen/small_padding"
                     android:paddingStart="@dimen/small_padding"
-                    android:src="@drawable/upload_icon" />
+                    android:src="@drawable/search_icon" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -160,7 +160,7 @@
                     android:paddingBottom="@dimen/small_padding"
                     android:paddingEnd="@dimen/small_padding"
                     android:paddingStart="@dimen/small_padding"
-                    android:text="Upload Alumni"
+                    android:text="Custom Search"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
@@ -169,45 +169,6 @@
             </LinearLayout>
 
         </android.support.design.card.MaterialCardView>
-
-
-        <!-- Column 1 -->
-        <!--<android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/very_small_margin"
-            android:layout_weight="1"
-            app:cardCornerRadius="@dimen/small_radius"
-            app:cardElevation="@dimen/card_elevation">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="16dp"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/small_margin"
-                    android:padding="@dimen/small_padding"
-                    android:src="@drawable/alumni_icon" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/small_margin"
-                    android:padding="@dimen/small_padding"
-                    android:text="View Alumni"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>-->
 
         <!-- Column 2 -->
         <android.support.design.card.MaterialCardView
@@ -222,10 +183,10 @@
             app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
-                android:id="@+id/custom_search"
+                android:id="@+id/view_events"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="16dp"
+                android:layout_margin="@dimen/medium_margin"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -236,7 +197,7 @@
                     android:paddingTop="@dimen/small_padding"
                     android:paddingEnd="@dimen/small_padding"
                     android:paddingStart="@dimen/small_padding"
-                    android:src="@drawable/search_icon" />
+                    android:src="@drawable/view_event_icon" />
 
                 <TextView
                     android:id="@+id/custom_search_text"
@@ -246,7 +207,7 @@
                     android:paddingBottom="@dimen/small_padding"
                     android:paddingEnd="@dimen/small_padding"
                     android:paddingStart="@dimen/small_padding"
-                    android:text="Custom Search"
+                    android:text="View Events"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
@@ -278,7 +239,7 @@
             app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
-                android:id="@+id/add_alumni"
+                android:id="@+id/add_events"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/small_margin"
@@ -292,7 +253,7 @@
                     android:paddingTop="@dimen/small_padding"
                     android:paddingEnd="@dimen/small_padding"
                     android:paddingStart="@dimen/small_padding"
-                    android:src="@drawable/add_alumni_icon" />
+                    android:src="@drawable/add_event_icon" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -301,7 +262,7 @@
                     android:paddingBottom="@dimen/small_padding"
                     android:paddingEnd="@dimen/small_padding"
                     android:paddingStart="@dimen/small_padding"
-                    android:text="Add Alumni"
+                    android:text="Add Events"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
@@ -366,7 +327,7 @@
                 android:id="@+id/add_faculty"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="16dp"
+                android:layout_margin="@dimen/medium_margin"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -491,5 +452,67 @@
         </android.support.v7.widget.CardView>
 
     </LinearLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <android.support.design.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/large_margin"
+            android:layout_marginBottom="@dimen/large_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:layout_weight="1"
+            app:strokeWidth="@dimen/small_radius"
+            app:strokeColor="@color/colorPrimary"
+            app:cardCornerRadius="@dimen/small_radius"
+            app:cardElevation="@dimen/card_elevation">
+
+            <LinearLayout
+                android:id="@+id/upload_alumni"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/small_margin"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/medium_margin"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingEnd="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
+                    android:src="@drawable/upload_icon" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/small_margin"
+                    android:paddingBottom="@dimen/small_padding"
+                    android:paddingEnd="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
+                    android:text="Upload Alumni"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </android.support.design.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin">
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

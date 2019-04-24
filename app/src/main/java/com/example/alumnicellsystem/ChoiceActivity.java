@@ -9,21 +9,30 @@ import android.widget.Button;
 
 public class ChoiceActivity extends AppCompatActivity {
 
-    Button faculy, alumni;
+    Button faculty, alumni;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choice);
 
-        faculy = findViewById(R.id.facultyLoginBtn);
+        faculty = findViewById(R.id.facultyLoginBtn);
         alumni = findViewById(R.id.alumniLoginBtn);
 
-        faculy.setOnClickListener(new View.OnClickListener() {
+        faculty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                intent.putExtra("choiceFinisher", new ResultReceiver(null){
+
+                    @Override
+                    protected void onReceiveResult(int resultCode, Bundle resultData) {
+                        ChoiceActivity.this.finish();
+                    }
+                });
+
+                startActivity(intent);
             }
         });
 

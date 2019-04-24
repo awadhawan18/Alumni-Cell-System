@@ -40,6 +40,8 @@ public class AddEvents extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_events);
 
+        setTitle("Add Events");
+
         titleET = findViewById(R.id.titleET);
         dateET = findViewById(R.id.dateET);
         venueET = findViewById(R.id.venueET);
