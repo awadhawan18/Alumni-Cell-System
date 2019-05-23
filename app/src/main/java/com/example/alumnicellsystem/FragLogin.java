@@ -139,6 +139,11 @@ public class FragLogin extends Fragment {
                         @Override
                         public void onFailure(Call<LoginResponse> call, Throwable t) {
                             Toast.makeText(getActivity(), "Login Unsuccessful", Toast.LENGTH_SHORT).show();
+
+                            if(progressDialog.isShowing()){
+
+                                progressDialog.dismiss();
+                            }
                         }
                     });
                 }
